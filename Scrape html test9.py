@@ -415,8 +415,8 @@ class AttritorScrape(tk.Frame):
         self.DataFrames.index =self.DataFrames['Time']
         #del self.DataFrames['Time']
         self.DataFrames= self.DataFrames.sort_index()
-        with pd.option_context('display.max_rows', None, 'display.max_columns', 3):
-            print(self.DataFrames)
+        #with pd.option_context('display.max_rows', None, 'display.max_columns', 3):
+            #print(self.DataFrames)
 
         #print (self.DataFrames.columns.tolist())
     def updateRunData(self):
@@ -448,9 +448,12 @@ class AttritorScrape(tk.Frame):
         print('runMax is: ')
         print(runMax)
         print(self.DataFrames['Time'].values)
-        self.DataFrames_noZero = self.DataFrames.drop(self.DataFrames[self.DataFrames.Hz<runMax-25])
+        print(self.DataFrames.columns.tolist())
+        #self.DataFrames.drop(self.DataFrames[self.DataFrames.Hz<runMax-25].index)
+        self.DataFrames_noZero = self.DataFrames.drop(self.DataFrames[self.DataFrames.Hz<runMax-25].index)
         with pd.option_context('display.max_rows', None, 'display.max_columns', 3):
             print(self.DataFrames_noZero)
+            #print(self.DataFrames)
         fig, ax = plt.subplots()
         ax.plot(self.DataFrames['Time'].values,self.DataFrames['HP'].values)
         #self.DataFrames.plot(x='Time',y ='HP')
