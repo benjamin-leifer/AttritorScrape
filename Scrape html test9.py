@@ -16,6 +16,7 @@ from scipy import integrate
 
 #matplotlib.style.use('ggplot')
 
+
 global isRunning
 isRunning=False
 global Hz
