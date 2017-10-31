@@ -15,7 +15,7 @@ from tkinter.filedialog import askopenfilenames
 from scipy import integrate
 from pymongo import MongoClient
 
-matplotlib.style.use('ggplot')
+plt.style.use('ggplot')
 
 
 global isRunning
