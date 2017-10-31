@@ -13,8 +13,9 @@ import io
 from base64 import encodebytes
 from tkinter.filedialog import askopenfilenames
 from scipy import integrate
+from pymongo import MongoClient
 
-#matplotlib.style.use('ggplot')
+matplotlib.style.use('ggplot')
 
 
 global isRunning
