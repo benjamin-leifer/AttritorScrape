@@ -456,7 +456,9 @@ class AttritorScrape(tk.Frame):
             print(self.DataFrames_noZero)
             #print(self.DataFrames)
         fig, ax = plt.subplots()
+        ax_Hz=ax.twinx()
         ax.plot(self.DataFrames['Time'].values,self.DataFrames['HP'].values)
+        ax_Hz.plot(self.DataFrames['Time'].values, self.DataFrames['Hz'].values,'r')
         #self.DataFrames.plot(x='Time',y ='HP')
 
         #cid = fig.canvas.mpl_connect('button_press_event', onclick)
@@ -470,7 +472,7 @@ class AttritorScrape(tk.Frame):
         self.CumulativePower.set(((745.7*self.DataFrames_noZero['HP']*self.DataFrames_noZero['TimeDelta']).sum().total_seconds())/(1000000*float(self.PowderWeight.get())))
     #def processRunData(self):
 
-
+    #def convert_ax(ax_f):
 
 class scrapeThread (threading.Thread):
 
