@@ -452,13 +452,15 @@ class AttritorScrape(tk.Frame):
         print(self.DataFrames.columns.tolist())
         #self.DataFrames.drop(self.DataFrames[self.DataFrames.Hz<runMax-25].index)
         self.DataFrames_noZero = self.DataFrames.drop(self.DataFrames[self.DataFrames.Hz<runMax-25].index)
+        """
         with pd.option_context('display.max_rows', None, 'display.max_columns', 3):
             print(self.DataFrames_noZero)
+        """
             #print(self.DataFrames)
         fig, ax = plt.subplots()
         ax_Hz=ax.twinx()
         ax.plot(self.DataFrames['Time'].values,self.DataFrames['HP'].values)
-        ax_Hz.plot(self.DataFrames['Time'].values, self.DataFrames['Hz'].values,'r')
+        ax_Hz.plot(self.DataFrames['Time'].values, self.DataFrames['RPM'].values,'r')
         #self.DataFrames.plot(x='Time',y ='HP')
 
         #cid = fig.canvas.mpl_connect('button_press_event', onclick)
